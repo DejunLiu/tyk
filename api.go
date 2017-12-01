@@ -1460,3 +1460,14 @@ func ctxSetVersionInfo(r *http.Request, v *apidef.VersionInfo) {
 	}
 	setCtxValue(r, VersionData, v)
 }
+
+func ctxGetDefaultVersion(r *http.Request) bool {
+	if r.Context().Value(VersionDefault) != nil {
+		return true
+	}
+	return false
+}
+
+func ctxSetDefaultVersion(r *http.Request) {
+	setCtxValue(r, VersionDefault, true)
+}
